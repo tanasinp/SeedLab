@@ -12,7 +12,7 @@
 
 | Lab | Seed Lab Module | Completed |
 | ------ | ------ | ------ |
-| [ARP Attack]() | [ARP Cache Poisoning Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/ARP_Attack/) | :x: |
+| [ARP Attack]() | [ARP Cache Poisoning Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/ARP_Attack/) | :white_check_mark: |
 
 
 ## Web Security

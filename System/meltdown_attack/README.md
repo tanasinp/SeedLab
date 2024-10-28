@@ -1,7 +1,5 @@
 # Meltdown Attack Lab
 
-**Instruction:** https://seedsecuritylabs.org/Labs_16.04/PDF/Meltdown_Attack.pdf
-
 **VirtualBox:** [Version 6.0.4](https://www.virtualbox.org/wiki/Download_Old_Builds_6_0)
 
 **VM version:** [SEEDUbuntu-16.04 VM](https://seedsecuritylabs.org/labsetup.html)
