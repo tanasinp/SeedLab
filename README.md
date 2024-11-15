@@ -15,6 +15,7 @@
 | [ARP Attack](https://github.com/tanasinp/SeedLab/tree/main/Network/arp_attack) | [ARP Cache Poisoning Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/ARP_Attack/) | :white_check_mark: |
 | [Local DNS Attack](https://github.com/tanasinp/SeedLab/tree/main/Network/dns_local) | [Local DNS Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/DNS/DNS_Local/) | :white_check_mark: |
 | [Kaminsky Attack](https://github.com/tanasinp/SeedLab/tree/main/Network/dns_kaminsky) | [The Kaminsky Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/DNS/DNS_Remote/) | :white_check_mark: |
+| [DNS Rebinding Attack](https://github.com/tanasinp/SeedLab/tree/main/Network/dns_rebinding) | [DNS Rebinding Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Networking/DNS/DNS_Rebinding/) | :arrows_counterclockwise: |
 
 
 ## Web Security
