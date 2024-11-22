@@ -22,9 +22,9 @@
 
 | Lab | Seed Lab Module | Completed |
 | ------ | ------ | ------ |
-| [XSS Attack]() | [Cross-Site Scripting Attack Lab (Elgg)](https://seedsecuritylabs.org/Labs_20.04/Web/Web_XSS_Elgg/) | :x: |
+| [XSS Attack](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack) | [Cross-Site Scripting Attack Lab (Elgg)](https://seedsecuritylabs.org/Labs_20.04/Web/Web_XSS_Elgg/) | :x: |
 | [CSRF Attack]() | [Cross-Site Request Forgery Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Web/Web_CSRF_Elgg/) | :x: |
-| [SQL Injection]() | [SQL Injection Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Web/Web_SQL_Injection/) | :x: |
+| [SQL Injection](https://github.com/tanasinp/SeedLab/tree/main/Web/sql_injection) | [SQL Injection Attack Lab](https://seedsecuritylabs.org/Labs_20.04/Web/Web_SQL_Injection/) | :x: |
 
 ## System Security 
 
